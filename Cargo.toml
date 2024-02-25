@@ -1,6 +1,5 @@
 [workspace]
 
 members = [
-    "rust/guessing_game",
-    "rust/hello-rust",
+    "rust/guessing_game", "rust/hello-rust", "rust/http-requests-check", "rust/rusty_weather",
 ]

@@ -1,5 +1,6 @@
 import string
 
+
 def _make_path_safe_file_name(file_name, is_screenshot=True):
     """
     Take a non-safe string and convert to something that can be used for file name
@@ -33,6 +34,6 @@ def _make_path_safe_file_name(file_name, is_screenshot=True):
     finally:
         return new_file_name
 
-x = 'Verify Subscribe syncs on iOS Device\nuuioiuoiuioiouuoiiououioiu&&&&((*(*(*)(*uiooiuoiuopiuougoibgtkjuyfnjufbjhytfhjvytdfhtyrdvhtyrdvhtrsdvhtrsdrtybsdhtrdshbtrdhbtrdbthyrd'
-print(_make_path_safe_file_name(x))
 
+x = "Verify Subscribe syncs on iOS Device\n"
+print(_make_path_safe_file_name(x))

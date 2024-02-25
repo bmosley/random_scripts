@@ -4,7 +4,7 @@ import requests
 from datetime import datetime
 
 API_BASE = "http://api.openweathermap.org"
-API_KEY = ""
+API_KEY = "482662e6bbc18c0e6ebc7f180ecc64d8"
 
 
 def get_weather_data(lat=None, lon=None):
@@ -28,8 +28,7 @@ def get_geo(city_name, state_code="CA", country_code="US", limit=3):
 
     matched_data = None
 
-    # this is long-hand `for-loop` so its easier to read.
-    # normally, we'd use a list comprehension instead to simplify.
+    # this is long-hand `for-loop` so its easier to read. normally, we'd use a list comprehension instead to simplify.
     for loc in data:
         # if the city matches what we asked for _exactly_ we can stop looking and bail out.
         if loc.get("name") == city_name:
@@ -46,6 +45,8 @@ def get_geo(city_name, state_code="CA", country_code="US", limit=3):
 
 
 lat, lon = get_geo("Campbell")
+
+print(lat, lon)
 data = get_weather_data(lat=lat, lon=lon)
 
 

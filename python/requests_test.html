@@ -1,8 +1,0 @@
-import re
-import requests
-
-url = "https://tvdev2.scv.apple.com/Vuze/master/bundle/ci/latest/lg/2019/internal/"
-url_obj = requests.get(url, auth=('bmosley', 'SegasaturnTOBY12'), verify=False)
-b = str(url_obj.content)
-m = re.search(r">(com.apple.appletv.+\.ipk)<", b)
-print(m.group(1))
