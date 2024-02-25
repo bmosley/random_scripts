@@ -1,0 +1,6 @@
+[workspace]
+
+members = [
+    "rust/guessing_game",
+    "rust/hello-rust",
+]
