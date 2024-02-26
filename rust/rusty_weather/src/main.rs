@@ -95,6 +95,11 @@ async fn main() -> io::Result<()> {
         }
     }
 
+    if lat == 0.0 || lon == 0.0 {
+        println!("No results found for {city_name}.");
+        return Ok(());
+    }
+
     let data = get_weather_data(lat, lon).await;
 
     match data {
@@ -108,6 +113,10 @@ async fn main() -> io::Result<()> {
         }
     }
 
-    print!("Weather in {city_name}: Current temp = {temp}, humidity = {humidity}\n");
+    // make the string capitalized if it's not already
+    let mut s = city_name.to_string();
+    let capitalized_city = s.remove(0).to_uppercase().to_string() + &s;
+
+    print!("Weather in {capitalized_city}: Current temp = {temp}, humidity = {humidity}\n");
     Ok(())
 }
