@@ -1,4 +1,6 @@
-use  serde::Deserialize;
+use std::io;
+use std::io::Write;
+use serde::Deserialize;
 
 // Constants
 
@@ -53,10 +55,23 @@ async fn get_geo(city_name: &str, state_code: Option<&str>, country_code: Option
     Ok(body)
 }
 
-#[tokio::main]
-async fn main() {
+fn prompt(name:&str) -> String {
+    let mut line = String::new();
+    print!("{}", name);
+    std::io::stdout().flush().unwrap();
+    std::io::stdin().read_line(&mut line).expect("Error: Could not read a line");
+ 
+    return line.trim().to_string()
+}
 
-    let city_name = "Campbell";    
+#[tokio::main]
+async fn main() -> io::Result<()> {
+
+    //let mut user_input = String::new();
+    let input = prompt("City Name: ");
+
+    //let city_name = "Campbell";    
+    let city_name = &input;
     let mut lat: f64 = 0.0;
     let mut lon: f64 = 0.0;
     let mut temp: f64 = 0.0;
@@ -68,7 +83,7 @@ async fn main() {
         Ok(coord_val) => {
             //println!("fact = {:#?}", coord_val);
             for i in coord_val {
-                if i.name == city_name {
+                if i.name == city_name.to_string() {
                     lat = i.lat;
                     lon = i.lon;
                     break;
@@ -93,5 +108,6 @@ async fn main() {
         }
     }
 
-    print!("Weather in {city_name}: Current temp = {temp}, humidity = {humidity}\n")
+    print!("Weather in {city_name}: Current temp = {temp}, humidity = {humidity}\n");
+    Ok(())
 }
