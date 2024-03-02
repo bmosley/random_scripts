@@ -1,0 +1,13 @@
+# To auto-connect to WiFi
+CIRCUITPY_WIFI_SSID="eagleVSshark"
+CIRCUITPY_WIFI_PASSWORD="eikomosley"
+
+# For OpenWeather API
+OPENWEATHER_KEY="482662e6bbc18c0e6ebc7f180ecc64d8"
+LOCATION="Santa Cruz, US"
+
+# To enable modifying files from the web. Change this too!
+# Leave the User field blank in the browser.
+CIRCUITPY_WEB_API_PASSWORD="5fb28537e82d47738a5f8abc10efd0f3"
+
+CIRCUITPY_WEB_API_PORT=80
